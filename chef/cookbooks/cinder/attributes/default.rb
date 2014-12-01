@@ -32,6 +32,11 @@ default[:cinder][:ssl][:insecure] = false
 default[:cinder][:ssl][:cert_required] = false
 default[:cinder][:ssl][:ca_certs] = "/etc/cinder/ssl/certs/ca.pem"
 
+#sqlalchemy parameters
+default[:cinder][:min_pool_size] = 1
+default[:cinder][:max_pool_size] = 15
+default[:cinder][:pool_timeout] = 2
+
 default[:cinder][:ha][:enabled] = false
 if %w(redhat centos suse).include? node.platform
   default[:cinder][:ha][:api_ra] = "lsb:openstack-cinder-api"
